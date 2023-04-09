@@ -46,9 +46,7 @@ if brand == 'APPLE':
     os_options = np.array(['Mac'])
 if 'Mac' in os_options and brand != 'APPLE':
     os_options = np.delete(os_options, np.where(os_options == 'Mac'))
-
-# Create the Operating System select box with the available options
-os = st.selectbox('Operating System', os_options)
+    
 os = st.selectbox('Operating System', os_options)
 processor = st.selectbox('Processor', df['Processor'].unique())
 ram_type = st.selectbox('RAM Type', df['RAMType'].unique())
