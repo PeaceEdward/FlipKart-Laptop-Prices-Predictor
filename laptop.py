@@ -41,6 +41,7 @@ le_ramtype = LabelEncoder().fit(df['RAMType'])
 
 # Get user input
 brand = st.selectbox('Brand', df['Brand'].unique())
+os_options = df.loc[df['Brand'] == brand, 'OS'].unique()
 if brand == 'APPLE':
     os_options= 'Mac'
 if brand != 'APPLE':
