@@ -74,6 +74,9 @@ os_encoded = le_os.transform([os])[0]
 brand_encoded = le_brand.transform([brand])[0]
 ram_type_encoded = le_ramtype.transform([ram_type])[0]
 
+
+
+
 # Make a prediction
 if st.button('Predict'):
     features = [processor_encoded, os_encoded, brand_encoded, ram_type_encoded, ram_size, hdd_size, ssd_size]
