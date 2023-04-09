@@ -81,7 +81,7 @@ if st.button('Predict'):
     prediction = rf_model.predict(final_features)
     
 if 'prediction' not in locals():
-    st.write('Click the "Predict" button to make a prediction.')    
+    st.write('Click the "Predict" button to view estimated price.')    
 else:
     # Display the prediction
     st.subheader('Prediction')    
