@@ -43,9 +43,12 @@ le_ramtype = LabelEncoder().fit(df['RAMType'])
 brand = st.selectbox('Brand', df['Brand'].unique())
 os_options = df.loc[df['Brand'] == brand, 'OS'].unique()
 if brand == 'APPLE':
-    os_options= 'Mac'
-if brand != 'APPLE':
-    os_options = np.delete(os_options, np.where(os== 'Mac'))
+    os_options = np.array(['Mac'])
+if 'Mac' in os_options and brand != 'APPLE':
+    os_options = np.delete(os_options, np.where(os_options == 'Mac'))
+
+# Create the Operating System select box with the available options
+os = st.selectbox('Operating System', os_options)
 os = st.selectbox('Operating System', os_options)
 processor = st.selectbox('Processor', df['Processor'].unique())
 ram_type = st.selectbox('RAM Type', df['RAMType'].unique())
