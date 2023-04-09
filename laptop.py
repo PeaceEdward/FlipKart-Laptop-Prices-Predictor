@@ -11,6 +11,7 @@ model_path = os.path.abspath(os.path.join(os.getcwd(), "resources", "models", "r
 le_os_path = os.path.abspath(os.path.join(os.getcwd(), "resources", "models", "encoder2.pkl"))
 le_brand_path = os.path.abspath(os.path.join(os.getcwd(), "resources", "models", "encoder3.pkl"))
 le_ramtype_path = os.path.abspath(os.path.join(os.getcwd(), "resources", "models", "encoder.pkl4"))
+image_path=os.path.abspath(os.path.join(os.getcwd(), "resources", "data", "pexels-mateusz-dach-450035.jpg"))
 
 df=pd.read_csv(file_path)
 
@@ -34,7 +35,7 @@ with open(le_ramtype_path, 'rb') as f:
 st.title('Laptop Price Predictor')
 
 from PIL import Image
-image = Image.open('pexels-mateusz-dach-450035.jpg')
+image = Image.open(image_path)
 st.image(image, use_column_width=True)
 
 
