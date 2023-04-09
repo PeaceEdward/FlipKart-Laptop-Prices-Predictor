@@ -48,7 +48,12 @@ if 'Mac' in os_options and brand != 'APPLE':
     os_options = np.delete(os_options, np.where(os_options == 'Mac'))
     
 os = st.selectbox('Operating System', os_options)
-processor = st.selectbox('Processor', df['Processor'].unique())
+processor_options=df.loc[df['Processor']==processor, 'Processor'].unique()
+if brand == 'APPLE':
+    processor_options = np.array(['M1 Processor', 'M1 Pro Processor', 'M1 Max Processor','Intel Core i9 Processor','Intel Core i7 Processor','Intel Core i5 Processor'])
+if "['M1 Processor', 'M1 Pro Processor', 'M1 Max Processor','Intel Core i9 Processor','Intel Core i7 Processor','Intel Core i5 Processor']" in processor_options and brand != 'APPLE':
+    processor_options = np.delete(processor_options, np.where(processor_options == "['M1 Processor', 'M1 Pro Processor', 'M1 Max Processor','Intel Core i9 Processor','Intel Core i7 Processor','Intel Core i5 Processor']"))
+processor = st.selectbox('Processor', processor_options)
 ram_type = st.selectbox('RAM Type', df['RAMType'].unique())
 ram_sizes = np.sort(df['RAMSize'].unique())
 ram_size = st.selectbox('RAM Size (in GB)', ram_sizes)
