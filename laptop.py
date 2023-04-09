@@ -70,8 +70,8 @@ if st.button('Predict'):
     
 if 'prediction' not in locals():
     st.write('Click the "Predict" button to make a prediction.')    
-
-# Display the prediction
-st.subheader('Prediction')    
-st.write(f'The estimated price of the laptop is {prediction[0]:,.0f} Indian Rupees.')
+else:
+    # Display the prediction
+    st.subheader('Prediction')    
+    st.write(f'The estimated price of the laptop is {prediction[0]:,.0f} Indian Rupees.')
 
