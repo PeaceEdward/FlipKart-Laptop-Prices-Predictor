@@ -50,8 +50,6 @@ ssd_sizes = np.sort(df['Storage_SSD'].unique())
 ssd_size = st.selectbox('SSD Size (in GB)', ssd_sizes)
 hdd_sizes = np.sort(df['Storage_HDD'].unique())
 hdd_size = st.selectbox('HDD Size (in GB)', hdd_sizes)
-rating = st.slider('Rating', min_value=1.0, max_value=5.0, step=0.1)
-display = st.slider('Display (in cm)', min_value=10.0, max_value=50.0, step=0.1)
 
 # Encode user input using the fitted LabelEncoder()
 processor_encoded = le_processor.transform([processor])[0]
