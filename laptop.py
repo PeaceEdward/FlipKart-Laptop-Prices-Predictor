@@ -67,10 +67,11 @@ if st.button('Predict'):
     features = [processor_encoded, os_encoded, brand_encoded, ram_type_encoded, ram_size, hdd_size, ssd_size]
     final_features = np.array(features).reshape(1, -1)
     prediction = rf_model.predict(final_features)
+    
+if 'prediction' not in locals():
+    st.write('Click the "Predict" button to make a prediction.')    
 
 # Display the prediction
 st.subheader('Prediction')    
 st.write(f'The estimated price of the laptop is {prediction[0]:,.0f} Indian Rupees.')
 
-if 'prediction' not in locals():
-    st.write('Click the "Predict" button to make a prediction.')
