@@ -64,3 +64,4 @@ prediction = rf_model.predict(final_features)
 
 # Display the prediction
 st.subheader('Prediction')    
+st.write(f'The estimated price of the laptop is {prediction[0]:,.0f} Indian Rupees.')
