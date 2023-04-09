@@ -7,7 +7,7 @@ import numpy as np
 
 file_path = os.path.abspath(os.path.join(os.getcwd(), "resources", "data", "laptop.csv"))
 le_path = os.path.abspath(os.path.join(os.getcwd(), "resources", "models", "encoder.pkl"))
-model_path = os.path.abspath(os.path.join(os.getcwd(), "resources", "models", "rfmodel.pkl1"))
+model_path = os.path.abspath(os.path.join(os.getcwd(), "resources", "models", "rfmodel.pkl"))
 le_os_path = os.path.abspath(os.path.join(os.getcwd(), "resources", "models", "encoder2.pkl"))
 le_brand_path = os.path.abspath(os.path.join(os.getcwd(), "resources", "models", "encoder3.pkl"))
 le_ramtype_path = os.path.abspath(os.path.join(os.getcwd(), "resources", "models", "encoder.pkl4"))
@@ -16,7 +16,7 @@ df=pd.read_csv(file_path)
 
 
 with open(model_path, 'rb') as f:
-    lm = pickle.load(f)
+    rf_model = pickle.load(f)
 
 with open(le_path, 'rb') as f:
     le_processor = pickle.load(f)
@@ -62,7 +62,7 @@ ram_type_encoded = le_ramtype.transform([ram_type])[0]
 # Make a prediction
 features = [processor_encoded, os_encoded, brand_encoded, ram_type_encoded, rating, display, ram_size, hdd_size, ssd_size]
 final_features = np.array(features).reshape(1, -1)
-prediction = lm.predict(final_features)
+prediction = rf_model.predict(final_features)
 
 # Display the prediction
 st.subheader('Prediction')    
