@@ -34,8 +34,8 @@ with open(le_ramtype_path, 'rb') as f:
 st.title('Laptop Price Predictor')
 
 from PIL import Image
-st.image(image, use_column_width=True)
 image = Image.open('pexels-mateusz-dach-450035.jpg')
+st.image(image, use_column_width=True)
 
 
 # Transform categorical features using LabelEncoder()
