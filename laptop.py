@@ -58,7 +58,7 @@ brand_encoded = le_brand.transform([brand])[0]
 ram_type_encoded = le_ramtype.transform([ram_type])[0]
 
 # Make a prediction
-features = [processor_encoded, os_encoded, brand_encoded, ram_type_encoded, rating, display, ram_size, hdd_size, ssd_size]
+features = [processor_encoded, os_encoded, brand_encoded, ram_type_encoded, ram_size, hdd_size, ssd_size]
 final_features = np.array(features).reshape(1, -1)
 prediction = rf_model.predict(final_features)
 
