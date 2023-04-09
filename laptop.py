@@ -42,10 +42,10 @@ le_ramtype = LabelEncoder().fit(df['RAMType'])
 # Get user input
 brand = st.selectbox('Brand', df['Brand'].unique())
 if brand == 'APPLE':
-    os= 'Mac'
+    os_options= 'Mac'
 if brand != 'APPLE':
-    os = np.delete(os, np.where(os== 'Mac'))
-os = st.selectbox('Operating System', df['OS'].unique())
+    os_options = np.delete(os_options, np.where(os== 'Mac'))
+os = st.selectbox('Operating System', os_options)
 processor = st.selectbox('Processor', df['Processor'].unique())
 ram_type = st.selectbox('RAM Type', df['RAMType'].unique())
 ram_sizes = np.sort(df['RAMSize'].unique())
@@ -62,9 +62,10 @@ brand_encoded = le_brand.transform([brand])[0]
 ram_type_encoded = le_ramtype.transform([ram_type])[0]
 
 # Make a prediction
-features = [processor_encoded, os_encoded, brand_encoded, ram_type_encoded, ram_size, hdd_size, ssd_size]
-final_features = np.array(features).reshape(1, -1)
-prediction = rf_model.predict(final_features)
+if st.button('Predict'):
+    features = [processor_encoded, os_encoded, brand_encoded, ram_type_encoded, ram_size, hdd_size, ssd_size]
+    final_features = np.array(features).reshape(1, -1)
+    prediction = rf_model.predict(final_features)
 
 # Display the prediction
 st.subheader('Prediction')    
