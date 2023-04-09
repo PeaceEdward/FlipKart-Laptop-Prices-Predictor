@@ -48,7 +48,7 @@ if 'Mac' in os_options and brand != 'APPLE':
     os_options = np.delete(os_options, np.where(os_options == 'Mac'))
     
 os = st.selectbox('Operating System', os_options)
-processor_options=df.loc[df['Processor']==processor, 'Processor'].unique()
+processor_options=df.loc[df['Brand']==brand, 'Processor'].unique()
 if brand == 'APPLE':
     processor_options = np.array(['M1 Processor', 'M1 Pro Processor', 'M1 Max Processor','Intel Core i9 Processor','Intel Core i7 Processor','Intel Core i5 Processor'])
 if "['M1 Processor', 'M1 Pro Processor', 'M1 Max Processor','Intel Core i9 Processor','Intel Core i7 Processor','Intel Core i5 Processor']" in processor_options and brand != 'APPLE':
