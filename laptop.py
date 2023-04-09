@@ -32,7 +32,7 @@ with open(le_ramtype_path, 'rb') as f:
     le_ramtype = pickle.load(f)
 
 
-st.title('Laptop Price Predictor')
+st.title('FlipKart Laptop Price Predictor')
 
 from PIL import Image
 image = Image.open(image_path)
